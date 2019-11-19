@@ -35,7 +35,7 @@ body, table, input {
   font-family: Helvetica, sans-serif;
   height: 100%;
   width: 100%;
-  background-color: #f7f7f7
+  /* background-color: #f7f7f7 */
 }
 *{
   margin: 0;

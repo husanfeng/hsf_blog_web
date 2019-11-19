@@ -10,7 +10,7 @@
   <router-link class="last" :to="{path: '/resume'}" target="_blank">我的简历</router-link>
 </nav> -->
 <router-view></router-view>
-  </div>
+ 
 </template>
 
 <style>

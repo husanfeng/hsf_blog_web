@@ -1,20 +1,10 @@
 <template>
   <div class="detail">
-    <div
-      class="article"
-      v-for="(item) in blogList"
-    >
-      <router-link
-        v-if="item._id != 'CNBlog'"
-        :to="{path: '../article/'+item._id}"
-        class="news-article"
-      >
+    <div class="article" v-for="(item,index) in blogList" :key="index">
+      <router-link  :to="{path: '../article/'+item._id}" class="news-article"  >
         <div class="vertical-aligner">
           <div class="image">
-            <img
-              :src='item.image'
-              alt=""
-            >
+            <img :src='item.image' alt="" >
           </div>
           <div class="desc">
             <hgroup>
@@ -24,7 +14,6 @@
             <p class="description">
               {{item.summary}}
             </p>
-            <!-- <p class="link">Read More</p> -->
           </div>
         </div>
       </router-link>
@@ -61,26 +50,6 @@ export default {
     getContent().then(() => {
       loading.close();
     });
-    // getContent().then(length => {
-    //     _this.$http.get("/api/getCNBlog").then(response => {
-    //       loading.close();
-    //       let CNBlogList = response.data.data.feed.entry;
-    //       for (let i = 0; i < length; i++) {
-    //         _this.blogList.push({
-    //           _id: "CNBlog",
-    //           title: CNBlogList[i].title[0]._,
-    //           author: CNBlogList[i].author[0].name[0],
-    //           summary: CNBlogList[i].summary[0]._,
-    //           link: CNBlogList[i].link[0].$.href,
-    //           time: CNBlogList[i].updated[0]
-    //         });
-    //       }
-    //     });
-    //   },
-    //   () => {
-    //     loading.close();
-    //   }
-    // );
   }
 };
 </script>
@@ -106,6 +75,10 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+.vertical-aligner .image img{
+    width: 100%;
+    height: 125px;
 }
 .vertical-aligner .desc {
 }

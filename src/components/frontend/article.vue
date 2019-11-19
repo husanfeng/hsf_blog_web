@@ -17,7 +17,7 @@
       >
         <h5>留言</h5>
         <div class="text">
-          <article v-for="item in commentData">
+          <article v-for="item in commentData" :key="item._id">
             <p class="name">{{item.name}} 说：</p>
             <p class="comment-content">{{item.content}}</p>
             <time>{{item.time | DateTransform}}</time>

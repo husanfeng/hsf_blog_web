@@ -8,6 +8,7 @@ import blog from '../components/frontend/blog.vue'
 import article from '../components/frontend/article.vue'
 import project from '../components/frontend/project.vue'
 import resource from '../components/frontend/resource.vue'
+import testIndex from '../components/frontend/testIndex.vue'
 //后台
 const backend = () =>
     import ('../components/backend/backend.vue')
@@ -17,9 +18,7 @@ const articleList = () =>
     import ('../components/backend/articleList.vue')
 const articleDetail = () =>
     import ('../components/backend/articleDetail.vue')
-const commentList = () =>
-    import ('../components/backend/commentList.vue')
-
+const commentList = () => import ('../components/backend/commentList.vue')
 //简历
 const resumeIndex = () =>
     import ('../components/resume/index.vue')
@@ -37,8 +36,13 @@ export default new Router({
             {
                 path: '/home',
                 component: hello,
-                redirect: '/home/blog',
-                children: [{
+                redirect: '/home/testIndex',
+                children: [
+                 {
+                        path: 'testIndex',
+                        component: testIndex
+                    },
+                {
                     path: 'blog',
                     component: blog
                 }, {

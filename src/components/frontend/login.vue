@@ -15,7 +15,7 @@
         </section>
 
         <el-button class="m_t_20" type="primary" @click="login">登陆</el-button>
-        <el-button class="m_t_20" type="primary" @click="register">注册</el-button>
+        <!-- <el-button class="m_t_20" type="primary" @click="register">注册</el-button> -->
       </div>
     </div>
   </div>

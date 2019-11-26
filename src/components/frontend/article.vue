@@ -11,7 +11,7 @@
         <blockquote v-html="blogData.summary"></blockquote>
         <div v-html="blogData.detail"></div>
       </div>
-      <section
+      <!-- <section
         class="commentShow"
         v-if="commentData.length>0"
       >
@@ -23,8 +23,8 @@
             <time>{{item.time | DateTransform}}</time>
           </article>
         </div>
-      </section>
-      <section class="comments">
+      </section> -->
+      <!-- <section class="comments">
         <h2>
           <a
             href="javascript:;"
@@ -73,13 +73,13 @@
           </article>
         </transition>
 
-      </section>
+      </section> -->
       <!-- <nav class="news-transport">
             <a href="/news/blog/2017/holiday-open-hours-and-activities" class="previous">上一篇</a>
             <a href="/news/mine-the-dowse-shop/2017/the-dowse-christmas-gift-guide" class="next">下一篇</a>
     	</nav> -->
     </article>
-    <footer id="footer"></footer>
+    <!-- <footer id="footer"></footer> -->
   </div>
 </template>
 

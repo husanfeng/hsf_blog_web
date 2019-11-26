@@ -6,9 +6,8 @@ import hello from '../components/frontend/Hello.vue'
 import login from '../components/frontend/login.vue'
 import blog from '../components/frontend/blog.vue'
 import article from '../components/frontend/article.vue'
-import project from '../components/frontend/project.vue'
-import resource from '../components/frontend/resource.vue'
-import testIndex from '../components/frontend/testIndex.vue'
+
+import Index from '../components/frontend/Index.vue'
 //后台
 const backend = () =>
     import ('../components/backend/backend.vue')
@@ -18,10 +17,8 @@ const articleList = () =>
     import ('../components/backend/articleList.vue')
 const articleDetail = () =>
     import ('../components/backend/articleDetail.vue')
-const commentList = () => import ('../components/backend/commentList.vue')
-//简历
-const resumeIndex = () =>
-    import ('../components/resume/index.vue')
+const commentList = () =>
+    import ('../components/backend/commentList.vue')
 
 Vue.use(Router)
 
@@ -36,25 +33,19 @@ export default new Router({
             {
                 path: '/home',
                 component: hello,
-                redirect: '/home/testIndex',
-                children: [
-                 {
-                        path: 'testIndex',
-                        component: testIndex
+                redirect: '/home/Index',
+                children: [{
+                        path: 'Index',
+                        component: Index
                     },
-                {
-                    path: 'blog',
-                    component: blog
-                }, {
-                    path: '/article/:articleId',
-                    component: article
-                }, {
-                    path: 'project',
-                    component: project
-                }, {
-                    path: 'resource',
-                    component: resource
-                }]
+                    {
+                        path: 'blog',
+                        component: blog
+                    }, {
+                        path: '/article/:articleId',
+                        component: article
+                    },
+                ]
             },
             {
                 path: '/login',
@@ -77,10 +68,8 @@ export default new Router({
                     path: 'commentList',
                     component: commentList
                 }]
-            }, {
-                path: '/resume',
-                component: resumeIndex
-            }
+            },
+
         ]
     }]
 })

@@ -3,25 +3,28 @@
     <header class="header header--index">
       <div class="wrapper header__title">
         <h1 class="header__h1 fn__flex-inline">
-          <img
-            src="https://img.hacpai.com/avatar/1353745196354_1572999872077.png?imageView2/1/w/256/h/256/q/100"
-          />
+          <img src="../../assets/touxiang.png" />
           <a href rel="start" class="header__title">风 的 博 客</a>
         </h1>
         <h2 class="header__h2">成功的人前千方百计，失败的人千难万险</h2>
       </div>
       <nav class="wrapper header__nav fn__clear">
-        <a href="" rel="start">首页</a>
+        <a href rel="start">首页</a>
         <a
           class="fn__flex-inline"
           href="https://github.com/husanfeng/hsf_blog"
-          target="_self"
+          target="_Blank"
           rel="section"
         >
-          <img src="https://static.hacpai.com/images/tags/react.png" /> 关于
+          <img src="../../assets/about.png" /> 关于
         </a>
-        <a class="fn__flex-inline" href="https://github.com/husanfeng/hsf_blog" target="_self" rel="section">
-          <img src="/images/github-icon.png" /> 我的开源
+        <a
+          class="fn__flex-inline"
+          href="https://github.com/husanfeng/hsf_blog"
+          target="_Blank"
+          rel="section"
+        >
+          <img src="../../assets/github.png" /> 我的开源
         </a>
         <!-- <a class="fn__flex-inline" href="https://hacpai.com" target="_blank" rel="section">
           <img src="https://static.hacpai.com/images/favicon.png" /> 黑客派
@@ -30,7 +33,7 @@
           <img src="https://static.b3log.org/images/brand/b3log-32.png" /> B3log
         </a>
 
-        <a href="https://88250.b3log.org/search">搜索</a> -->
+        <a href="https://88250.b3log.org/search">搜索</a>-->
 
         <!-- <div class="fn__right">
           <a
@@ -70,7 +73,7 @@
           <a rel="alternate" href="https://88250.b3log.org/rss.xml">RSS</a>
 
           <a rel="alternate" href="https://88250.b3log.org/start">开始使用</a>
-        </div> -->
+        </div>-->
       </nav>
     </header>
     <div class="wrapper">
@@ -95,7 +98,7 @@
               <!-- <img :src="item.image" alt /> -->
               <span class="item__tag">{{item.cat}}</span>
               <!-- </span> -->
-              <span class="item__meta"  >42 评论</span>
+              <span class="item__meta">42 评论</span>
             </div>
           </div>
           <!-- </router-link> -->
@@ -106,11 +109,11 @@
 </template>
 
 <style>
-.div_bottom{
-      display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 15px;
+.div_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 .articles .item__cover {
   -webkit-box-flex: 1;
@@ -118,7 +121,6 @@
   height: auto;
 }
 .articles .item__meta {
-   
   color: #738a94;
 }
 .articles .item__avatar img {
@@ -300,8 +302,9 @@ img {
   font-weight: normal;
 }
 .header__h1 img {
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   margin-right: 10px;
 }
 .header__h1 a {
@@ -372,7 +375,7 @@ img {
 
 <script>
 export default {
-  name: "blog",
+  name: "Index",
   data() {
     return {
       blogList: []

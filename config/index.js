@@ -12,28 +12,29 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: 'http://localhost:8888/',
+                target: 'http://10.153.178.42:8888/',
                 changeOrigin: true,
+                ws:false,
                 pathRewrite: {
                     '^/api': '/api'
                 }
             },
             '/ueditor': {
-                target: 'http://localhost:8888/',
+                target: 'http://10.153.178.42:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/ueditor': '/ueditor'
                 }
             },
             '/nodejs': {
-                target: 'http://localhost:8888/',
+                target: 'http://10.153.178.42:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/nodejs': '/nodejs'
                 }
             },
             '/img': {
-                target: 'http://localhost:8888/',
+                target: 'http://10.153.178.42:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/img': '/img'
@@ -42,7 +43,7 @@ module.exports = {
         },
 
         // Various Dev Server settings
-        host: 'localhost', // can be overwritten by process.env.HOST
+        host: '10.153.178.42', // can be overwritten by process.env.HOST
         port: 2000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: false,
         errorOverlay: true,
@@ -62,8 +63,8 @@ module.exports = {
          */
 
         // https://webpack.js.org/configuration/devtool/#development
-        devtool: 'eval-source-map',
-
+        // devtool: 'eval-source-map',
+        devtool: "source-map",
         // If you have problems debugging vue-files in devtools,
         // set this to false - it *may* help
         // https://vue-loader.vuejs.org/en/options.html#cachebusting

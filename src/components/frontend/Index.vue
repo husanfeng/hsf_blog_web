@@ -6,7 +6,7 @@
           <img src="../../assets/touxiang.png" />
           <a href rel="start" class="header__title">风 的 博 客</a>
         </h1>
-        <h2 class="header__h2">成功的人前千方百计，失败的人千难万险</h2>
+        <h2 class="header__h2">成功的人千方百计，失败的人千难万险</h2>
       </div>
       <nav class="wrapper header__nav fn__clear">
         <a href rel="start">首页</a>
@@ -107,6 +107,47 @@
     </div>
   </div>
 </template>
+
+
+
+<script>
+export default {
+  name: "Index",
+  data() {
+    return {
+      blogList: []
+    };
+  },
+  methods: {
+    toArticle(id) {
+      this.$router.push({
+        //核心语句
+        path: "../article/" + id //跳转的路径
+        // query:{           //路由传参时push和query搭配使用 ，作用时传递参数
+        //   id:this.id ,
+        // }
+      });
+    }
+  },
+  mounted() {
+    let _this = this;
+    const loading = this.$loading({
+      lock: true
+    });
+    let getContent = function() {
+      return new Promise((resolve, reject) => {
+        _this.$http.get("/api/account/getContent").then(response => {
+          _this.blogList = response.data;
+          loading.close();
+        });
+      });
+    };
+    getContent().then(() => {
+      loading.close();
+    });
+  }
+};
+</script>
 
 <style>
 .div_bottom {
@@ -213,7 +254,7 @@ user agent stylesheet h2 {
   -webkit-box-flex: 1;
   flex: 1 1 300px;
   overflow: hidden;
-  margin: 0 20px 40px;
+  /* margin: 0 20px 40px; */
   min-height: 300px;
   border-radius: 5px;
   box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
@@ -248,7 +289,7 @@ a {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -20px;
+  /* margin: 0 -20px; */
 }
 .header__nav svg {
   margin-top: 5px;
@@ -371,44 +412,3 @@ img {
   filter: brightness(48%);
 }
 </style>
-
-
-<script>
-export default {
-  name: "Index",
-  data() {
-    return {
-      blogList: []
-    };
-  },
-  methods: {
-    toArticle(id) {
-      this.$router.push({
-        //核心语句
-        path: "../article/" + id //跳转的路径
-        // query:{           //路由传参时push和query搭配使用 ，作用时传递参数
-        //   id:this.id ,
-        // }
-      });
-    }
-  },
-  mounted() {
-    let _this = this;
-    const loading = this.$loading({
-      lock: true
-    });
-    let getContent = function() {
-      return new Promise((resolve, reject) => {
-        _this.$http.get("/api/account/getContent").then(response => {
-          _this.blogList = response.data;
-          loading.close();
-        });
-      });
-    };
-    getContent().then(() => {
-      loading.close();
-    });
-  }
-};
-</script>
-</script>

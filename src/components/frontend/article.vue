@@ -1,6 +1,9 @@
 <template>
   <div class="article-detail">
-    <article class="acricle" style="display:flex;flex-direction: column;align-items: center;">
+    <article
+      class="acricle"
+      style="display:flex;flex-direction: column;align-items: center;"
+    >
       <h1 class="article-title">{{blogData.title}}</h1>
       <section class="published">
         <time class="pubdate">
@@ -9,7 +12,10 @@
       </section>
       <div class="text">
         <blockquote v-html="blogData.summary"></blockquote>
-        <div v-html="blogData.detail"></div>
+        <div
+          v-html="blogData.detail"
+          v-bind:style="{width: screenWidth,margin: '0 auto'}"
+        ></div>
       </div>
       <!-- <section
         class="commentShow"
@@ -93,7 +99,8 @@ export default {
       showComment: false,
       name: "",
       email: "",
-      commentContent: ""
+      commentContent: "",
+      screenWidth: document.body.clientWidth // 屏幕尺寸
     };
   },
   methods: {
@@ -127,16 +134,26 @@ export default {
           });
         }
       });
+    },
+    getWidth() {
+      var that = this;
+      if (that.screenWidth > 1000) {
+        that.screenWidth = 1000 + "px";
+      } else {
+        that.screenWidth =  that.screenWidth  + "px";
+      }
     }
   },
   mounted() {
+    var that = this;
     window.scrollTo(0, 0);
+    this.getWidth();
     //获取文章内容
     const loading = this.$loading({ lock: true });
     let url = "/api/account/getContent?_id=" + this.$route.params.articleId;
     this.$http.get(url).then(response => {
       this.blogData = response.data[0];
-       loading.close();
+      loading.close();
     });
     //获取评论内容，只读取前10条评论
     let commentUrl =
@@ -144,6 +161,18 @@ export default {
     this.$http.get(commentUrl).then(response => {
       this.commentData = response.data.splice(0, 10);
     });
+    //获取屏幕宽度
+    window.onresize = () => {
+      return (() => {
+        that.screenWidth = document.body.clientWidth -10;
+        that.getWidth();
+        // if (window.screenWidth > 1000) {
+        //   that.screenWidth = 1000 + "px";
+        // } else {
+        //   that.screenWidth = window.screenWidth + "px";
+        // }
+      })();
+    };
   }
 };
 </script>
@@ -171,14 +200,14 @@ body .article-detail .article-title {
   font-weight: 500;
 }
 body .article-detail .article-title:after {
-  content: "";
+  /* content: "";
   position: absolute;
   background: #000;
   width: 5px;
   height: 40px;
   bottom: -45px;
   left: 50%;
-  margin-left: -2px;
+  margin-left: -2px; */
 }
 body .article-detail .published {
   /* border-top: 5px solid #000;
@@ -197,7 +226,7 @@ body .article-detail .text blockquote {
 }
 body .article-detail .text {
   margin: 0 auto;
-  width: 60%;
+  /* width: 60%; */
 }
 .commentShow {
   width: 820px;

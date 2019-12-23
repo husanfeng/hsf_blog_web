@@ -1,15 +1,25 @@
 <template>
-  <div id="pjax" class="fn__flex-1">
+  <div
+    id="pjax"
+    class="fn__flex-1"
+  >
     <header class="header header--index">
       <div class="wrapper header__title">
         <h1 class="header__h1 fn__flex-inline">
           <img src="../../assets/touxiang.png" />
-          <a href rel="start" class="header__title">风 的 博 客</a>
+          <a
+            href
+            rel="start"
+            class="header__title"
+          >风 的 博 客</a>
         </h1>
         <h2 class="header__h2">成功的人千方百计，失败的人千难万险</h2>
       </div>
       <nav class="wrapper header__nav fn__clear">
-        <a href rel="start">首页</a>
+        <a
+          href
+          rel="start"
+        >首页</a>
         <a
           class="fn__flex-inline"
           href="https://github.com/husanfeng/hsf_blog"
@@ -86,7 +96,10 @@
         >
           <!-- <router-link :to="{path: '../article/'+item._id}"class="news-article"
           >-->
-          <span class="item__cover" :style="{backgroundImage:`url(${item.image})`}"></span>
+          <span
+            class="item__cover"
+            :style="{backgroundImage:`url(${item.image})`}"
+          ></span>
           <div class="item__main">
             <!-- <span   class="item__tag"  >{{item.cat}}</span> -->
             <h2 class="item__title">
@@ -145,6 +158,22 @@ export default {
     getContent().then(() => {
       loading.close();
     });
+
+    /**
+     * http调用小程序云函数测试
+     */
+    // function test() {
+    //   console.log("方法执行------");
+    //   _this.$http.get("/api/getMiniProgromData").then(response => {
+    //     console.log(response.data.data);
+    //     var str = response.data.data ;
+    //     var str2 = JSON.parse(str)
+    //     var str3 = str2.resp_data
+    //     console.log(JSON.parse(str3));
+
+    //   });
+    // }
+    // test();
   }
 };
 </script>
@@ -267,6 +296,7 @@ user agent stylesheet h2 {
   -webkit-box-direction: normal;
   flex-direction: column;
   background-color: #fff;
+  margin: 5px;
 }
 /* element.style {
 		background-image: url(https://img.hacpai.com/bing/20171214.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100);

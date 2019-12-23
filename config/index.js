@@ -12,7 +12,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: 'http://10.153.178.42:8888/',
+                target: 'http://localhost:8888/',
                 changeOrigin: true,
                 ws:false,
                 pathRewrite: {
@@ -20,21 +20,21 @@ module.exports = {
                 }
             },
             '/ueditor': {
-                target: 'http://10.153.178.42:8888/',
+                target: 'http://localhost:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/ueditor': '/ueditor'
                 }
             },
             '/nodejs': {
-                target: 'http://10.153.178.42:8888/',
+                target: 'http://localhost:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/nodejs': '/nodejs'
                 }
             },
             '/img': {
-                target: 'http://10.153.178.42:8888/',
+                target: 'http://localhost:8888/',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/img': '/img'
@@ -43,7 +43,7 @@ module.exports = {
         },
 
         // Various Dev Server settings
-        host: '10.153.178.42', // can be overwritten by process.env.HOST
+        host: 'localhost', // can be overwritten by process.env.HOST
         port: 2000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: false,
         errorOverlay: true,

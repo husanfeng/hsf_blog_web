@@ -16,7 +16,7 @@
         "cookie-parser": "^1.4.3",
         "element-ui": "^2.0.6",
         "express-session": "^1.15.6",
-        "marked": "^0.3.9",
+        "marked": "^4.0.10",
         "mongoose": "^4.13.5",
         "prismjs": "^1.9.0",
         "request": "^2.83.0",

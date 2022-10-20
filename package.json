@@ -17,7 +17,7 @@
         "element-ui": "^2.0.6",
         "express-session": "^1.15.6",
         "marked": "^0.3.9",
-        "mongoose": "^4.13.5",
+        "mongoose": "^4.13.21",
         "prismjs": "^1.9.0",
         "request": "^2.83.0",
         "ueditor": "^1.2.3",
